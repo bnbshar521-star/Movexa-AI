@@ -43,9 +43,9 @@
             <h1 class="text-2xl font-black bg-gradient-to-r from-white via-purple-200 to-neonPurple bg-clip-text text-transparent">MOVEXA AI</h1>
         </div>
         <div class="flex items-center space-x-4">
-            <button onclick="openNotifications()" class="relative p-2 rounded-xl bg-cardBg hover:bg-purple-900/40 transition border border-purple-500/20">
-                <i class="fa-regular fa-bell text-neonPurple text-lg"></i>
-                <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+            <button onclick="switchTab('pricing')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-darkBg font-black text-sm hover:opacity-90 transition shadow-lg flex items-center space-x-2">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Upgrade Pro</span>
             </button>
             <div class="flex items-center space-x-2 bg-cardBg px-4 py-2 rounded-xl border border-purple-500/20">
                 <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white">M</div>
@@ -75,34 +75,15 @@
                     <i class="fa-solid fa-user-shield text-lg w-6"></i>
                     <span class="hidden md:inline">Character Studio</span>
                 </button>
-                <button onclick="switchTab('movexa-magic')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
-                    <i class="fa-solid fa-wand-sparkles text-lg w-6 text-yellow-400"></i>
-                    <span class="hidden md:inline">MOVEXA Magic</span>
-                </button>
-                <button onclick="switchTab('prompt-assistant')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
-                    <i class="fa-solid fa-terminal text-lg w-6"></i>
-                    <span class="hidden md:inline">Prompt Assistant</span>
-                </button>
-                <button onclick="switchTab('projects')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
-                    <i class="fa-solid fa-folder-open text-lg w-6"></i>
-                    <span class="hidden md:inline">My Projects</span>
-                </button>
-                <button onclick="switchTab('gallery')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
-                    <i class="fa-solid fa-compass text-lg w-6"></i>
-                    <span class="hidden md:inline">Explore Gallery</span>
+                <button onclick="switchTab('pricing')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-yellow-400 hover:bg-yellow-500/10">
+                    <i class="fa-solid fa-tags text-lg w-6"></i>
+                    <span class="hidden md:inline">Pricing & Binance</span>
                 </button>
                 <button onclick="switchTab('settings')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
                     <i class="fa-solid fa-gear text-lg w-6"></i>
                     <span class="hidden md:inline">Settings</span>
                 </button>
             </nav>
-            <div class="p-4 rounded-xl bg-purple-950/40 border border-purple-500/20 text-center">
-                <p class="text-xs text-purple-300 font-semibold mb-2">Version: 2.0 Pro</p>
-                <div class="w-full bg-purple-900/50 rounded-full h-2 mb-2">
-                    <div class="bg-gradient-to-r from-purple-500 to-indigo-400 h-2 rounded-full w-3/4"></div>
-                </div>
-                <span class="text-[10px] text-gray-400">Credits: 750 / 1000 pts</span>
-            </div>
         </aside>
 
         <!-- Main Content Area -->
@@ -111,46 +92,88 @@
             <!-- Home Tab -->
             <div id="tab-home" class="tab-content space-y-8">
                 <div class="glass-panel p-8 rounded-3xl relative overflow-hidden neon-glow">
-                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="relative z-10 max-w-2xl">
                         <span class="px-3 py-1 rounded-full bg-purple-500/20 text-neonPurple text-xs font-bold border border-purple-500/30">✨ Create Without Limits</span>
                         <h2 class="text-3xl lg:text-5xl font-black mt-4 mb-4 leading-tight">Transform Your Ideas into Stunning AI Images & Videos</h2>
-                        <p class="text-gray-300 mb-6 text-sm lg:text-base">Experience advanced generative AI studios, character consistency, and magic workflows designed for professionals.</p>
-                        <div class="flex flex-wrap gap-4">
-                            <button onclick="switchTab('image-studio')" class="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-bold hover:opacity-90 transition shadow-lg shadow-purple-600/30 flex items-center space-x-2">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                                <span>Create Image</span>
-                            </button>
-                            <button onclick="switchTab('video-studio')" class="px-6 py-3 rounded-xl bg-cardBg border border-purple-500/30 font-bold hover:bg-purple-900/30 transition flex items-center space-x-2">
-                                <i class="fa-solid fa-video"></i>
-                                <span>Video Studio</span>
-                            </button>
-                        </div>
+                        <p class="text-gray-300 mb-6 text-sm lg:text-base">Experience advanced generative AI studios and professional features.</p>
+                        <button onclick="switchTab('pricing')" class="px-6 py-3 rounded-xl bg-amber-500 text-darkBg font-black hover:bg-amber-400 transition flex items-center space-x-2">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>View Pricing Plans</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Tab -->
+            <div id="tab-pricing" class="tab-content hidden space-y-8">
+                <div class="text-center max-w-2xl mx-auto space-y-3">
+                    <span class="px-3 py-1 rounded-full bg-amber-500/20 text-yellow-400 text-xs font-bold border border-amber-500/30">💎 Direct Crypto Payment</span>
+                    <h2 class="text-3xl lg:text-4xl font-black">Choose Your Plan & Pay via Binance</h2>
+                    <p class="text-gray-300 text-sm">Transfer the exact amount directly to our official wallet address using USDT (BSC/ETH network).</p>
+                </div>
+
+                <!-- Official Wallet Box -->
+                <div class="glass-panel p-5 rounded-2xl max-w-xl mx-auto border border-amber-500/40 bg-cardBg/90 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider"><i class="fa-solid fa-wallet"></i> Official Binance / USDT Wallet:</span>
+                        <button onclick="copyWallet()" class="px-3 py-1 bg-purple-600/30 hover:bg-purple-600/50 rounded-lg text-xs font-bold transition text-neonPurple">
+                            <i class="fa-solid fa-copy"></i> Copy Address
+                        </button>
+                    </div>
+                    <div class="bg-darkBg p-3 rounded-xl border border-purple-500/20 font-mono text-xs text-gray-300 break-all select-all">
+                        0xfd3519f35636ffd56d691170021da96e61457cc8
                     </div>
                 </div>
 
-                <!-- Quick Access Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div onclick="switchTab('image-studio')" class="glass-panel p-6 rounded-2xl hover:border-purple-500/50 transition cursor-pointer group">
-                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center text-neonPurple mb-4 group-hover:scale-110 transition">
-                            <i class="fa-solid fa-image text-xl"></i>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                    <!-- Free Plan -->
+                    <div class="glass-panel p-6 rounded-3xl flex flex-col justify-between border border-purple-500/20">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Starter</h3>
+                            <p class="text-gray-400 text-sm mb-4">For hobbyists and testing.</p>
+                            <div class="text-3xl font-black mb-6">$0 <span class="text-xs text-gray-400 font-normal">/ free</span></div>
+                            <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-green-400"></i><span>100 Credits</span></li>
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-green-400"></i><span>Standard Generation</span></li>
+                            </ul>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Image Studio</h3>
-                        <p class="text-gray-400 text-sm">Generate, upscale, remove backgrounds, and transform photos into 3D or anime styles.</p>
+                        <button class="w-full py-3 rounded-xl bg-cardBg border border-purple-500/30 font-bold text-sm text-gray-300">Current Plan</button>
                     </div>
-                    <div onclick="switchTab('video-studio')" class="glass-panel p-6 rounded-2xl hover:border-purple-500/50 transition cursor-pointer group">
-                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center text-neonPurple mb-4 group-hover:scale-110 transition">
-                            <i class="fa-solid fa-video text-xl"></i>
+
+                    <!-- Pro Plan ($41) -->
+                    <div class="glass-panel p-6 rounded-3xl flex flex-col justify-between border-2 border-amber-500/60 neon-glow relative">
+                        <div class="absolute top-0 right-0 bg-amber-500 text-darkBg text-[10px] font-black px-3 py-1 rounded-bl-xl">POPULAR</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-yellow-400">Pro Creator</h3>
+                            <p class="text-gray-400 text-sm mb-4">Full professional access.</p>
+                            <div class="text-3xl font-black mb-6">$41 <span class="text-xs text-gray-400 font-normal">/ month</span></div>
+                            <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-yellow-400"></i><span>5,000 Credits</span></li>
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-yellow-400"></i><span>Unlimited Video Studio</span></li>
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-yellow-400"></i><span>4K Ultra HD Exports</span></li>
+                            </ul>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Video Studio</h3>
-                        <p class="text-gray-400 text-sm">Convert text and images into cinematic motion clips with precise camera control.</p>
+                        <button onclick="payWithWallet('Pro Creator', 41)" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-darkBg font-black text-sm hover:opacity-90 transition shadow-lg flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-bitcoin"></i>
+                            <span>Pay $41 via Binance</span>
+                        </button>
                     </div>
-                    <div onclick="switchTab('character-studio')" class="glass-panel p-6 rounded-2xl hover:border-purple-500/50 transition cursor-pointer group">
-                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center text-neonPurple mb-4 group-hover:scale-110 transition">
-                            <i class="fa-solid fa-user-shield text-xl"></i>
+
+                    <!-- Enterprise Plan ($14) -->
+                    <div class="glass-panel p-6 rounded-3xl flex flex-col justify-between border border-purple-500/20">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Basic Boost</h3>
+                            <p class="text-gray-400 text-sm mb-4">For active creators.</p>
+                            <div class="text-3xl font-black mb-6">$14 <span class="text-xs text-gray-400 font-normal">/ month</span></div>
+                            <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-green-400"></i><span>1,000 Credits</span></li>
+                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-green-400"></i><span>Image Studio Access</span></li>
+                            </ul>
                         </div>
-                        <h3 class="text-xl font-bold mb-2">Character Studio</h3>
-                        <p class="text-gray-400 text-sm">Save and lock custom characters to ensure perfect consistency across scenes.</p>
+                        <button onclick="payWithWallet('Basic Boost', 14)" class="w-full py-3 rounded-xl bg-purple-600 font-bold text-sm hover:bg-purple-700 transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-bitcoin"></i>
+                            <span>Pay $14 via Binance</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -158,124 +181,56 @@
             <!-- Image Studio Tab -->
             <div id="tab-image-studio" class="tab-content hidden space-y-6">
                 <div class="glass-panel p-6 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4 flex items-center space-x-2">
-                        <i class="fa-solid fa-image text-neonPurple"></i>
-                        <span>Image Studio</span>
-                    </h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <div class="space-y-4">
-                            <div>
-                               <label class="block text-sm font-semibold mb-2">Prompt:</label>
-                               <textarea rows="4" class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 focus:outline-none focus:border-neonPurple text-sm" placeholder="Describe the image you want to generate..."></textarea>
-                            </div>
-                            <div>
-                               <label class="block text-sm font-semibold mb-2">Negative Prompt:</label>
-                               <input type="text" class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 focus:outline-none focus:border-neonPurple text-sm" placeholder="Elements to avoid...">
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Art Style:</label>
-                                    <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
-                                        <option>Cinematic Realistic</option>
-                                        <option>Japanese Anime</option>
-                                        <option>3D Digital Render</option>
-                                        <option>Cyberpunk Sci-Fi</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Aspect Ratio:</label>
-                                    <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
-                                        <option>1:1 (Square)</option>
-                                        <option>16:9 (Landscape - YouTube)</option>
-                                        <option>9:16 (Portrait - TikTok)</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button onclick="simulateGeneration('image')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-bold hover:opacity-90 transition shadow-lg">Generate Image</button>
-                        </div>
-                        <div class="glass-panel bg-darkBg/50 rounded-xl flex flex-col items-center justify-center p-8 border border-dashed border-purple-500/30 min-h-[350px]">
-                            <div id="image-result-container" class="text-center space-y-3">
-                                <i class="fa-solid fa-cloud-arrow-up text-4xl text-purple-400"></i>
-                                <p class="text-gray-400 text-sm">Generated image preview and results will appear here</p>
-                            </div>
-                        </div>
-                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Image Studio</h2>
+                    <textarea rows="4" class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm mb-4" placeholder="Describe your image..."></textarea>
+                    <button class="w-full py-3 rounded-xl bg-purple-600 font-bold text-sm">Generate</button>
                 </div>
             </div>
 
             <!-- Video Studio Tab -->
             <div id="tab-video-studio" class="tab-content hidden space-y-6">
                 <div class="glass-panel p-6 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4 flex items-center space-x-2">
-                        <i class="fa-solid fa-video text-neonPurple"></i>
-                        <span>Video Studio</span>
-                    </h2>
-                    <div class="space-y-4">
-                        <div>
-                           <label class="block text-sm font-semibold mb-2">Text to Video Prompt:</label>
-                           <textarea rows="3" class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 focus:outline-none focus:border-neonPurple text-sm" placeholder="Describe the moving scene in detail..."></textarea>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Camera Motion:</label>
-                                <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
-                                    <option>Zoom In</option>
-                                    <option>Pan Right</option>
-                                    <option>Cinematic Orbit</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Duration:</label>
-                                <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
-                                    <option>4 Seconds</option>
-                                    <option>8 Seconds</option>
-                                    <option>10 Seconds (Pro)</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Quality:</label>
-                                <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
-                                    <option>1080p HD</option>
-                                    <option>4K Ultra HD</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button onclick="simulateGeneration('video')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-bold hover:opacity-90 transition shadow-lg">Generate Video</button>
-                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Video Studio</h2>
+                    <p class="text-gray-400 text-sm">Video generator workspace.</p>
                 </div>
             </div>
 
             <!-- Character Studio Tab -->
             <div id="tab-character-studio" class="tab-content hidden space-y-6">
                 <div class="glass-panel p-6 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4 flex items-center space-x-2">
-                        <i class="fa-solid fa-user-shield text-neonPurple"></i>
-                        <span>Character Studio</span>
-                    </h2>
-                    <p class="text-gray-300 text-sm mb-6">Upload character references and save them to consistently generate them across scenes.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="glass-panel bg-darkBg/50 p-6 rounded-xl border border-dashed border-purple-500/40 text-center flex flex-col items-center justify-center cursor-pointer hover:border-purple-400 transition">
-                            <i class="fa-solid fa-user-plus text-3xl text-purple-400 mb-3"></i>
-                            <span class="font-bold text-sm">Add New Character</span>
-                            <span class="text-xs text-gray-500 mt-1">Upload at least 4 photos</span>
-                        </div>
-                        <div class="glass-panel p-4 rounded-xl flex items-center space-x-4 border border-purple-500/20">
-                            <div class="w-14 h-14 rounded-xl bg-purple-900/40 flex items-center justify-center font-bold text-xl">👤</div>
-                            <div>
-                                <h4 class="font-bold">Character #1 (Alex)</h4>
-                                <span class="text-xs text-green-400">Saved & Active</span>
-                            </div>
-                        </div>
-                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Character Studio</h2>
+                    <p class="text-gray-400 text-sm">Character consistency workspace.</p>
                 </div>
             </div>
 
-            <!-- Movexa Magic Tab -->
-            <div id="tab-movexa-magic" class="tab-content hidden space-y-6">
+            <!-- Settings Tab -->
+            <div id="tab-settings" class="tab-content hidden space-y-6">
                 <div class="glass-panel p-6 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4 flex items-center space-x-2">
-                        <i class="fa-solid fa-wand-sparkles text-yellow-400"></i>
-                        <span>MOVEXA Magic</span>
-                    </h2>
-                    <p class="text-gray-300 text-sm mb-6">Upload an image or video and let AI perform instant intelligent edits with a single click.</p>
-                    <div class="glass-panel b
+                    <h2 class="text-2xl font-bold mb-4">Settings</h2>
+                    <p class="text-gray-400 text-sm">Account settings.</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+        }
+
+        function copyWallet() {
+            const wallet = "0xfd3519f35636ffd56d691170021da96e61457cc8";
+            navigator.clipboard.writeText(wallet);
+            alert("Wallet address copied successfully!");
+        }
+
+        function payWithWallet(planName, price) {
+            const wallet = "0xfd3519f35636ffd56d691170021da96e61457cc8";
+            alert("To subscribe to " + planName + " ($" + price + "):\n\nSend the exact amount to our Binance wallet:\n" + wallet);
+        }
+    </script>
+</body>
+</html>
