@@ -1,151 +1,281 @@
-You are a senior full-stack developer and premium UI/UX designer.
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVEXA AI - Create Without Limits</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#131b2e',
+                        primaryPurple: '#8b5cf6',
+                        darkPurple: '#6d28d9',
+                        neonPurple: '#a78bfa'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
+        .glass-panel { background: rgba(19, 27, 46, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(139, 92, 246, 0.2); }
+        .neon-glow { box-shadow: 0 0 25px rgba(139, 92, 246, 0.3); }
+        .sidebar-item.active { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
 
-I want you to completely replace my existing MOVEXA AI website with a stunning, professional AI creative platform.
+    <!-- Header / Navbar -->
+    <header class="glass-panel sticky top-0 z-50 border-b border-purple-900/30 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center neon-glow">
+                <i class="fa-solid fa-wand-magic-sparkles text-white text-xl"></i>
+            </div>
+            <h1 class="text-2xl font-black bg-gradient-to-r from-white via-purple-200 to-neonPurple bg-clip-text text-transparent">MOVEXA AI</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button onclick="openNotifications()" class="relative p-2 rounded-xl bg-cardBg hover:bg-purple-900/40 transition border border-purple-500/20">
+                <i class="fa-regular fa-bell text-neonPurple text-lg"></i>
+                <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+            </button>
+            <div class="flex items-center space-x-2 bg-cardBg px-4 py-2 rounded-xl border border-purple-500/20">
+                <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white">M</div>
+                <span class="font-semibold text-sm hidden sm:inline">Pro Account</span>
+            </div>
+        </div>
+    </header>
 
-Existing project:
-https://github.com/bnbshar521-star/Movexa-AI
+    <div class="flex flex-1 overflow-hidden">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-20 md:w-64 glass-panel border-r border-purple-900/30 p-4 flex flex-col justify-between hidden md:flex">
+            <nav class="space-y-2">
+                <button onclick="switchTab('home')" class="sidebar-item active w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300">
+                    <i class="fa-solid fa-house text-lg w-6"></i>
+                    <span class="hidden md:inline">Home</span>
+                </button>
+                <button onclick="switchTab('image-studio')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
+                    <i class="fa-solid fa-image text-lg w-6"></i>
+                    <span class="hidden md:inline">Image Studio</span>
+                </button>
+                <button onclick="switchTab('video-studio')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
+                    <i class="fa-solid fa-video text-lg w-6"></i>
+                    <span class="hidden md:inline">Video Studio</span>
+                </button>
+                <button onclick="switchTab('character-studio')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
+                    <i class="fa-solid fa-user-shield text-lg w-6"></i>
+                    <span class="hidden md:inline">Character Studio</span>
+                </button>
+                <button onclick="switchTab('movexa-magic')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
+                    <i class="fa-solid fa-wand-sparkles text-lg w-6 text-yellow-400"></i>
+                    <span class="hidden md:inline">MOVEXA Magic</span>
+                </button>
+                <button onclick="switchTab('prompt-assistant')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
+                    <i class="fa-solid fa-terminal text-lg w-6"></i>
+                    <span class="hidden md:inline">Prompt Assistant</span>
+                </button>
+                <button onclick="switchTab('projects')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
+                    <i class="fa-solid fa-folder-open text-lg w-6"></i>
+                    <span class="hidden md:inline">My Projects</span>
+                </button>
+                <button onclick="switchTab('gallery')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
+                    <i class="fa-solid fa-compass text-lg w-6"></i>
+                    <span class="hidden md:inline">Explore Gallery</span>
+                </button>
+                <button onclick="switchTab('settings')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
+                    <i class="fa-solid fa-gear text-lg w-6"></i>
+                    <span class="hidden md:inline">Settings</span>
+                </button>
+            </nav>
+            <div class="p-4 rounded-xl bg-purple-950/40 border border-purple-500/20 text-center">
+                <p class="text-xs text-purple-300 font-semibold mb-2">Version: 2.0 Pro</p>
+                <div class="w-full bg-purple-900/50 rounded-full h-2 mb-2">
+                    <div class="bg-gradient-to-r from-purple-500 to-indigo-400 h-2 rounded-full w-3/4"></div>
+                </div>
+                <span class="text-[10px] text-gray-400">Credits: 750 / 1000 pts</span>
+            </div>
+        </aside>
 
-Main file: index.html
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto p-6 lg:p-10">
+            
+            <!-- Home Tab -->
+            <div id="tab-home" class="tab-content space-y-8">
+                <div class="glass-panel p-8 rounded-3xl relative overflow-hidden neon-glow">
+                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="relative z-10 max-w-2xl">
+                        <span class="px-3 py-1 rounded-full bg-purple-500/20 text-neonPurple text-xs font-bold border border-purple-500/30">✨ Create Without Limits</span>
+                        <h2 class="text-3xl lg:text-5xl font-black mt-4 mb-4 leading-tight">Transform Your Ideas into Stunning AI Images & Videos</h2>
+                        <p class="text-gray-300 mb-6 text-sm lg:text-base">Experience advanced generative AI studios, character consistency, and magic workflows designed for professionals.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="switchTab('image-studio')" class="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-bold hover:opacity-90 transition shadow-lg shadow-purple-600/30 flex items-center space-x-2">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <span>Create Image</span>
+                            </button>
+                            <button onclick="switchTab('video-studio')" class="px-6 py-3 rounded-xl bg-cardBg border border-purple-500/30 font-bold hover:bg-purple-900/30 transition flex items-center space-x-2">
+                                <i class="fa-solid fa-video"></i>
+                                <span>Video Studio</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-IMPORTANT:
-Build the actual complete website, not just a description or design concept.
+                <!-- Quick Access Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div onclick="switchTab('image-studio')" class="glass-panel p-6 rounded-2xl hover:border-purple-500/50 transition cursor-pointer group">
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center text-neonPurple mb-4 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-image text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Image Studio</h3>
+                        <p class="text-gray-400 text-sm">Generate, upscale, remove backgrounds, and transform photos into 3D or anime styles.</p>
+                    </div>
+                    <div onclick="switchTab('video-studio')" class="glass-panel p-6 rounded-2xl hover:border-purple-500/50 transition cursor-pointer group">
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center text-neonPurple mb-4 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-video text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Video Studio</h3>
+                        <p class="text-gray-400 text-sm">Convert text and images into cinematic motion clips with precise camera control.</p>
+                    </div>
+                    <div onclick="switchTab('character-studio')" class="glass-panel p-6 rounded-2xl hover:border-purple-500/50 transition cursor-pointer group">
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center text-neonPurple mb-4 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-user-shield text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Character Studio</h3>
+                        <p class="text-gray-400 text-sm">Save and lock custom characters to ensure perfect consistency across scenes.</p>
+                    </div>
+                </div>
+            </div>
 
-BRAND:
-MOVEXA AI
-Tagline: Create Without Limits.
+            <!-- Image Studio Tab -->
+            <div id="tab-image-studio" class="tab-content hidden space-y-6">
+                <div class="glass-panel p-6 rounded-2xl">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center space-x-2">
+                        <i class="fa-solid fa-image text-neonPurple"></i>
+                        <span>Image Studio</span>
+                    </h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div>
+                               <label class="block text-sm font-semibold mb-2">Prompt:</label>
+                               <textarea rows="4" class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 focus:outline-none focus:border-neonPurple text-sm" placeholder="Describe the image you want to generate..."></textarea>
+                            </div>
+                            <div>
+                               <label class="block text-sm font-semibold mb-2">Negative Prompt:</label>
+                               <input type="text" class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 focus:outline-none focus:border-neonPurple text-sm" placeholder="Elements to avoid...">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Art Style:</label>
+                                    <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
+                                        <option>Cinematic Realistic</option>
+                                        <option>Japanese Anime</option>
+                                        <option>3D Digital Render</option>
+                                        <option>Cyberpunk Sci-Fi</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Aspect Ratio:</label>
+                                    <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
+                                        <option>1:1 (Square)</option>
+                                        <option>16:9 (Landscape - YouTube)</option>
+                                        <option>9:16 (Portrait - TikTok)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button onclick="simulateGeneration('image')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-bold hover:opacity-90 transition shadow-lg">Generate Image</button>
+                        </div>
+                        <div class="glass-panel bg-darkBg/50 rounded-xl flex flex-col items-center justify-center p-8 border border-dashed border-purple-500/30 min-h-[350px]">
+                            <div id="image-result-container" class="text-center space-y-3">
+                                <i class="fa-solid fa-cloud-arrow-up text-4xl text-purple-400"></i>
+                                <p class="text-gray-400 text-sm">Generated image preview and results will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-DESIGN:
+            <!-- Video Studio Tab -->
+            <div id="tab-video-studio" class="tab-content hidden space-y-6">
+                <div class="glass-panel p-6 rounded-2xl">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center space-x-2">
+                        <i class="fa-solid fa-video text-neonPurple"></i>
+                        <span>Video Studio</span>
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                           <label class="block text-sm font-semibold mb-2">Text to Video Prompt:</label>
+                           <textarea rows="3" class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 focus:outline-none focus:border-neonPurple text-sm" placeholder="Describe the moving scene in detail..."></textarea>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Camera Motion:</label>
+                                <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
+                                    <option>Zoom In</option>
+                                    <option>Pan Right</option>
+                                    <option>Cinematic Orbit</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Duration:</label>
+                                <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
+                                    <option>4 Seconds</option>
+                                    <option>8 Seconds</option>
+                                    <option>10 Seconds (Pro)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Quality:</label>
+                                <select class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm focus:outline-none">
+                                    <option>1080p HD</option>
+                                    <option>4K Ultra HD</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button onclick="simulateGeneration('video')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 font-bold hover:opacity-90 transition shadow-lg">Generate Video</button>
+                    </div>
+                </div>
+            </div>
 
-- Premium black and purple visual identity.
-- Beautiful purple neon gradients.
-- Modern glassmorphism.
-- Animated backgrounds.
-- Smooth page transitions.
-- Professional icons.
-- Responsive mobile and desktop interface.
-- Premium dashboard similar to leading AI creative platforms.
+            <!-- Character Studio Tab -->
+            <div id="tab-character-studio" class="tab-content hidden space-y-6">
+                <div class="glass-panel p-6 rounded-2xl">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center space-x-2">
+                        <i class="fa-solid fa-user-shield text-neonPurple"></i>
+                        <span>Character Studio</span>
+                    </h2>
+                    <p class="text-gray-300 text-sm mb-6">Upload character references and save them to consistently generate them across scenes.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="glass-panel bg-darkBg/50 p-6 rounded-xl border border-dashed border-purple-500/40 text-center flex flex-col items-center justify-center cursor-pointer hover:border-purple-400 transition">
+                            <i class="fa-solid fa-user-plus text-3xl text-purple-400 mb-3"></i>
+                            <span class="font-bold text-sm">Add New Character</span>
+                            <span class="text-xs text-gray-500 mt-1">Upload at least 4 photos</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl flex items-center space-x-4 border border-purple-500/20">
+                            <div class="w-14 h-14 rounded-xl bg-purple-900/40 flex items-center justify-center font-bold text-xl">👤</div>
+                            <div>
+                                <h4 class="font-bold">Character #1 (Alex)</h4>
+                                <span class="text-xs text-green-400">Saved & Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-MAIN NAVIGATION:
-
-1. Home
-2. Image Studio
-3. Video Studio
-4. Character Studio
-5. MOVEXA MAGIC
-6. AI Prompt Assistant
-7. My Projects
-8. Explore Gallery
-9. Pricing
-10. Settings
-
-CORE AI TOOLS:
-
-IMAGE STUDIO:
-
-- Image to Image.
-- Multiple image uploads.
-- Image previews.
-- Prompt and negative prompt.
-- Style selection.
-- Image quality and aspect ratio.
-- Background removal.
-- Image enhancement.
-- Image upscaling.
-- Photo to Anime.
-- Photo to 3D.
-
-VIDEO STUDIO:
-
-- Text to Video.
-- Image to Video.
-- Video to Video.
-- Video upload and preview.
-- Animation prompts.
-- Negative prompts.
-- Duration settings.
-- Aspect ratio and quality controls.
-- Video result preview.
-- Download options.
-
-CHARACTER STUDIO:
-
-- Upload character references.
-- Create named characters.
-- Save and reuse characters.
-- Character consistency features.
-- Character gallery.
-- Character replacement in videos.
-
-MOVEXA MAGIC:
-Create an impressive central creative tool where users upload an image or video, describe their idea, and receive recommendations for the appropriate AI workflow.
-
-AI PROMPT ASSISTANT:
-
-- Improve prompts.
-- Expand short descriptions.
-- Generate cinematic prompts.
-- Suggest camera angles and movements.
-- Suggest lighting and visual styles.
-- Generate negative prompts.
-- Copy prompts.
-
-EXPLORE:
-
-- Featured creations.
-- Trending AI images.
-- Cinematic videos.
-- Creative categories.
-- Featured styles.
-- Full-screen previews.
-
-MY PROJECTS:
-
-- Recent projects.
-- Saved images and videos.
-- Favorites.
-- Rename and delete projects.
-- Project history.
-
-EXTRA PREMIUM FEATURES:
-
-- Animated homepage.
-- Featured AI showcase.
-- Trending section.
-- New features announcements.
-- Special offers.
-- Optional advertising spaces.
-- Notifications.
-- Search functionality.
-- User profile.
-- Beautiful loading animations.
-- Before-and-after comparison slider.
-- Download center.
-
-TECHNICAL REQUIREMENTS:
-
-- Working navigation and interactions.
-- Functional upload previews.
-- File validation.
-- Mobile-friendly interface.
-- Organized code.
-- Secure backend architecture.
-- API keys must never be exposed in frontend code.
-- Real AI generation must use actual connected APIs.
-- Do not fake successful generation.
-- Clearly identify features that require backend or external AI services.
-
-DELIVERY:
-I want a complete ready-to-deploy project.
-
-If possible, keep the frontend in one complete index.html file with embedded CSS and JavaScript.
-
-If backend functionality requires additional files, provide them separately with exact setup instructions.
-
-Do not omit code.
-Do not truncate code.
-Do not leave unfinished sections.
-Do not use fake buttons.
-
-My goal is to build MOVEXA AI into a premium international AI creative platform.
-
-Start building the complete project now.
+            <!-- Movexa Magic Tab -->
+            <div id="tab-movexa-magic" class="tab-content hidden space-y-6">
+                <div class="glass-panel p-6 rounded-2xl">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center space-x-2">
+                        <i class="fa-solid fa-wand-sparkles text-yellow-400"></i>
+                        <span>MOVEXA Magic</span>
+                    </h2>
+                    <p class="text-gray-300 text-sm mb-6">Upload an image or video and let AI perform instant intelligent edits with a single click.</p>
+                    <div class="glass-panel b
