@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOVEXA AI - Create Without Limits</title>
+    <title>MOVEXA AI - Ultra Cyberpunk Edition</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,11 +11,11 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0b0f19',
-                        cardBg: '#131b2e',
-                        primaryPurple: '#8b5cf6',
-                        darkPurple: '#6d28d9',
-                        neonPurple: '#a78bfa'
+                        darkBg: '#05070f',
+                        cardBg: '#0d1322',
+                        primaryPurple: '#9d4edd',
+                        neonPurple: '#c77dff',
+                        neonCyan: '#00f5d4'
                     }
                 }
             }
@@ -23,67 +23,141 @@
     </script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
-        .glass-panel { background: rgba(19, 27, 46, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(139, 92, 246, 0.2); }
-        .neon-glow { box-shadow: 0 0 25px rgba(139, 92, 246, 0.3); }
-        .sidebar-item.active { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #03050a; 
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        .cyber-bg {
+            background: 
+                radial-gradient(circle at 15% 20%, rgba(157, 78, 221, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(0, 245, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(60, 9, 108, 0.3) 0%, transparent 70%),
+                linear-gradient(to bottom, #03050a, #070a14);
+            background-attachment: fixed;
+        }
+
+        .grid-overlay {
+            background-image: 
+                linear-gradient(rgba(157, 78, 221, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(157, 78, 221, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .glow-orb-1 {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.4) 0%, rgba(0,0,0,0) 70%);
+            top: -50px;
+            left: -50px;
+            filter: blur(50px);
+            animation: pulseGlow 8s infinite alternate;
+            pointer-events: none;
+        }
+
+        .glow-orb-2 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.25) 0%, rgba(0,0,0,0) 70%);
+            bottom: -100px;
+            right: -100px;
+            filter: blur(70px);
+            animation: pulseGlow 10s infinite alternate-reverse;
+            pointer-events: none;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.6; }
+            100% { transform: scale(1.3) translate(30px, 40px); opacity: 0.9; }
+        }
+
+        .glass-panel { 
+            background: rgba(13, 19, 34, 0.75); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.25); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-card-glow:hover {
+            border-color: rgba(0, 245, 212, 0.6);
+            box-shadow: 0 0 35px rgba(0, 245, 212, 0.25), 0 0 15px rgba(157, 78, 221, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .sidebar-item.active { 
+            background: linear-gradient(135deg, #7b2cbf 0%, #3c096c 100%); 
+            color: white; 
+            border-left: 4px solid #00f5d4;
+            box-shadow: 0 4px 20px rgba(123, 44, 191, 0.5); 
+        }
+
+        .mono-font { font-family: 'JetBrains Mono', monospace; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="cyber-bg min-h-screen flex flex-col relative grid-overlay">
+
+    <!-- Background Animated Orbs -->
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
 
     <!-- Header / Navbar -->
-    <header class="glass-panel sticky top-0 z-50 border-b border-purple-900/30 px-6 py-4 flex justify-between items-center">
+    <header class="glass-panel sticky top-0 z-50 border-b border-purple-500/20 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center neon-glow">
-                <i class="fa-solid fa-wand-magic-sparkles text-white text-xl"></i>
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-purple-500/30">
+                <i class="fa-solid fa-bolt-lightning text-white text-xl"></i>
             </div>
-            <h1 class="text-2xl font-black bg-gradient-to-r from-white via-purple-200 to-neonPurple bg-clip-text text-transparent">MOVEXA AI</h1>
+            <h1 class="text-2xl font-black bg-gradient-to-r from-white via-neonPurple to-neonCyan bg-clip-text text-transparent tracking-wider">
+                MOVEXA <span class="text-xs px-2 py-0.5 rounded bg-cyan-500/20 text-neonCyan border border-cyan-500/40">ULTRA AI</span>
+            </h1>
         </div>
         <div class="flex items-center space-x-4">
-            <button onclick="switchTab('pricing')" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-darkBg font-black text-sm hover:opacity-90 transition shadow-lg flex items-center space-x-2">
-                <i class="fa-solid fa-bolt"></i>
+            <button onclick="switchTab('pricing')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-black font-black text-xs uppercase tracking-widest hover:brightness-110 transition shadow-lg shadow-amber-500/20 flex items-center space-x-2">
+                <i class="fa-solid fa-crown"></i>
                 <span>Upgrade Pro</span>
             </button>
-            <div class="flex items-center space-x-2 bg-cardBg px-4 py-2 rounded-xl border border-purple-500/20">
-                <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white">M</div>
-                <span class="font-semibold text-sm hidden sm:inline">Pro Account</span>
+            <div class="flex items-center space-x-3 bg-cardBg/90 px-4 py-2 rounded-xl border border-purple-500/30">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center font-extrabold text-white text-xs">M</div>
+                <span class="font-bold text-xs tracking-wide hidden sm:inline text-purple-200" id="user-status">Free Trial (1 Credit)</span>
             </div>
         </div>
     </header>
 
-    <div class="flex flex-1 overflow-hidden">
+    <div class="flex flex-1 overflow-hidden z-10">
         
         <!-- Sidebar Navigation -->
-        <aside class="w-20 md:w-64 glass-panel border-r border-purple-900/30 p-4 flex flex-col justify-between hidden md:flex">
-            <nav class="space-y-2">
-                <button onclick="switchTab('home')" class="sidebar-item active w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300">
-                    <i class="fa-solid fa-house text-lg w-6"></i>
-                    <span class="hidden md:inline">Home</span>
+        <aside class="w-20 md:w-64 glass-panel border-r border-purple-500/20 p-4 flex flex-col justify-between hidden md:flex">
+            <nav class="space-y-3">
+                <button onclick="switchTab('home')" class="sidebar-item active w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl transition font-bold text-gray-300">
+                    <i class="fa-solid fa-house-lightspeed text-lg w-6 text-neonCyan"></i>
+                    <span class="hidden md:inline">Dashboard</span>
                 </button>
-                <button onclick="switchTab('image-studio')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
-                    <i class="fa-solid fa-image text-lg w-6"></i>
+                <button onclick="switchTab('image-studio')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl transition font-bold text-gray-300 hover:bg-purple-900/30 hover:text-white">
+                    <i class="fa-solid fa-wand-magic-sparkles text-lg w-6 text-neonPurple"></i>
                     <span class="hidden md:inline">Image Studio</span>
                 </button>
-                <button onclick="switchTab('video-studio')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
-                    <i class="fa-solid fa-video text-lg w-6"></i>
-                    <span class="hidden md:inline">Video Studio</span>
+                <button onclick="switchTab('video-studio')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl transition font-bold text-gray-300 hover:bg-purple-900/30 hover:text-white">
+                    <i class="fa-solid fa-film text-lg w-6 text-cyan-400"></i>
+                    <span class="hidden md:inline">Video & Image Editor</span>
                 </button>
-                <button onclick="switchTab('character-studio')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
-                    <i class="fa-solid fa-user-shield text-lg w-6"></i>
-                    <span class="hidden md:inline">Character Studio</span>
-                </button>
-                <button onclick="switchTab('pricing')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-yellow-400 hover:bg-yellow-500/10">
-                    <i class="fa-solid fa-tags text-lg w-6"></i>
+                <button onclick="switchTab('pricing')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl transition font-bold text-yellow-400 hover:bg-yellow-500/10">
+                    <i class="fa-solid fa-wallet text-lg w-6"></i>
                     <span class="hidden md:inline">Pricing & Binance</span>
                 </button>
-                <button onclick="switchTab('settings')" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-semibold text-gray-300 hover:bg-purple-900/20 hover:text-white">
-                    <i class="fa-solid fa-gear text-lg w-6"></i>
-                    <span class="hidden md:inline">Settings</span>
-                </button>
             </nav>
+            
+            <div class="p-4 rounded-2xl bg-gradient-to-b from-purple-950/60 to-darkBg border border-purple-500/30 text-center">
+                <p class="text-[11px] text-neonCyan font-bold uppercase tracking-wider mb-1">Engine v3.5 Turbo</p>
+                <p class="text-[10px] text-gray-400">Direct Crypto Gateway Active</p>
+            </div>
         </aside>
 
         <!-- Main Content Area -->
@@ -91,146 +165,144 @@
             
             <!-- Home Tab -->
             <div id="tab-home" class="tab-content space-y-8">
-                <div class="glass-panel p-8 rounded-3xl relative overflow-hidden neon-glow">
-                    <div class="relative z-10 max-w-2xl">
-                        <span class="px-3 py-1 rounded-full bg-purple-500/20 text-neonPurple text-xs font-bold border border-purple-500/30">✨ Create Without Limits</span>
-                        <h2 class="text-3xl lg:text-5xl font-black mt-4 mb-4 leading-tight">Transform Your Ideas into Stunning AI Images & Videos</h2>
-                        <p class="text-gray-300 mb-6 text-sm lg:text-base">Experience advanced generative AI studios and professional features.</p>
-                        <button onclick="switchTab('pricing')" class="px-6 py-3 rounded-xl bg-amber-500 text-darkBg font-black hover:bg-amber-400 transition flex items-center space-x-2">
-                            <i class="fa-solid fa-bolt"></i>
-                            <span>View Pricing Plans</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pricing Tab -->
-            <div id="tab-pricing" class="tab-content hidden space-y-8">
-                <div class="text-center max-w-2xl mx-auto space-y-3">
-                    <span class="px-3 py-1 rounded-full bg-amber-500/20 text-yellow-400 text-xs font-bold border border-amber-500/30">💎 Direct Crypto Payment</span>
-                    <h2 class="text-3xl lg:text-4xl font-black">Choose Your Plan & Pay via Binance</h2>
-                    <p class="text-gray-300 text-sm">Transfer the exact amount directly to our official wallet address using USDT (BSC/ETH network).</p>
-                </div>
-
-                <!-- Official Wallet Box -->
-                <div class="glass-panel p-5 rounded-2xl max-w-xl mx-auto border border-amber-500/40 bg-cardBg/90 space-y-2">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider"><i class="fa-solid fa-wallet"></i> Official Binance / USDT Wallet:</span>
-                        <button onclick="copyWallet()" class="px-3 py-1 bg-purple-600/30 hover:bg-purple-600/50 rounded-lg text-xs font-bold transition text-neonPurple">
-                            <i class="fa-solid fa-copy"></i> Copy Address
-                        </button>
-                    </div>
-                    <div class="bg-darkBg p-3 rounded-xl border border-purple-500/20 font-mono text-xs text-gray-300 break-all select-all">
-                        0xfd3519f35636ffd56d691170021da96e61457cc8
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-                    <!-- Free Plan -->
-                    <div class="glass-panel p-6 rounded-3xl flex flex-col justify-between border border-purple-500/20">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Starter</h3>
-                            <p class="text-gray-400 text-sm mb-4">For hobbyists and testing.</p>
-                            <div class="text-3xl font-black mb-6">$0 <span class="text-xs text-gray-400 font-normal">/ free</span></div>
-                            <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-green-400"></i><span>100 Credits</span></li>
-                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-green-400"></i><span>Standard Generation</span></li>
-                            </ul>
+                <div class="glass-panel p-8 lg:p-12 rounded-3xl relative overflow-hidden glass-card-glow border-purple-500/40">
+                    <div class="relative z-10 max-w-3xl space-y-4">
+                        <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-neonCyan text-xs font-extrabold border border-cyan-500/30 uppercase tracking-widest">
+                            ⚡ Next-Gen AI Image & Video Editing Engine
+                        </span>
+                        <h2 class="text-4xl lg:text-6xl font-black leading-tight tracking-tight">
+                            Upload Media & Animate <br>
+                            <span class="bg-gradient-to-r from-neonPurple via-cyan-400 to-white bg-clip-text text-transparent">With AI Precision.</span>
+                        </h2>
+                        <p class="text-gray-300 text-sm lg:text-base leading-relaxed">
+                            Upload your photo or video, type your prompt, and let MOVEXA AI transform it into dynamic motion or custom edits.
+                        </p>
+                        <div class="pt-4 flex flex-wrap gap-4">
+                            <button onclick="switchTab('video-studio')" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 font-black text-sm uppercase tracking-wider hover:brightness-125 transition shadow-lg shadow-purple-600/40 flex items-center space-x-3">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>Upload & Animate (1 Free Credit)</span>
+                            </button>
+                            <button onclick="switchTab('pricing')" class="px-8 py-4 rounded-2xl bg-cardBg border border-amber-500/50 text-yellow-400 font-bold text-sm hover:bg-amber-500/10 transition flex items-center space-x-3">
+                                <i class="fa-solid fa-gem"></i>
+                                <span>View Subscription Plans</span>
+                            </button>
                         </div>
-                        <button class="w-full py-3 rounded-xl bg-cardBg border border-purple-500/30 font-bold text-sm text-gray-300">Current Plan</button>
-                    </div>
-
-                    <!-- Pro Plan ($41) -->
-                    <div class="glass-panel p-6 rounded-3xl flex flex-col justify-between border-2 border-amber-500/60 neon-glow relative">
-                        <div class="absolute top-0 right-0 bg-amber-500 text-darkBg text-[10px] font-black px-3 py-1 rounded-bl-xl">POPULAR</div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 text-yellow-400">Pro Creator</h3>
-                            <p class="text-gray-400 text-sm mb-4">Full professional access.</p>
-                            <div class="text-3xl font-black mb-6">$41 <span class="text-xs text-gray-400 font-normal">/ month</span></div>
-                            <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-yellow-400"></i><span>5,000 Credits</span></li>
-                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-yellow-400"></i><span>Unlimited Video Studio</span></li>
-                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-yellow-400"></i><span>4K Ultra HD Exports</span></li>
-                            </ul>
-                        </div>
-                        <button onclick="payWithWallet('Pro Creator', 41)" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-darkBg font-black text-sm hover:opacity-90 transition shadow-lg flex items-center justify-center space-x-2">
-                            <i class="fa-brands fa-bitcoin"></i>
-                            <span>Pay $41 via Binance</span>
-                        </button>
-                    </div>
-
-                    <!-- Enterprise Plan ($14) -->
-                    <div class="glass-panel p-6 rounded-3xl flex flex-col justify-between border border-purple-500/20">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Basic Boost</h3>
-                            <p class="text-gray-400 text-sm mb-4">For active creators.</p>
-                            <div class="text-3xl font-black mb-6">$14 <span class="text-xs text-gray-400 font-normal">/ month</span></div>
-                            <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-green-400"></i><span>1,000 Credits</span></li>
-                                <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-green-400"></i><span>Image Studio Access</span></li>
-                            </ul>
-                        </div>
-                        <button onclick="payWithWallet('Basic Boost', 14)" class="w-full py-3 rounded-xl bg-purple-600 font-bold text-sm hover:bg-purple-700 transition flex items-center justify-center space-x-2">
-                            <i class="fa-brands fa-bitcoin"></i>
-                            <span>Pay $14 via Binance</span>
-                        </button>
                     </div>
                 </div>
             </div>
 
             <!-- Image Studio Tab -->
             <div id="tab-image-studio" class="tab-content hidden space-y-6">
-                <div class="glass-panel p-6 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4">Image Studio</h2>
-                    <textarea rows="4" class="w-full bg-darkBg border border-purple-500/30 rounded-xl p-3 text-sm mb-4" placeholder="Describe your image..."></textarea>
-                    <button class="w-full py-3 rounded-xl bg-purple-600 font-bold text-sm">Generate</button>
+                <div class="glass-panel p-6 lg:p-8 rounded-3xl border border-purple-500/30">
+                    <h2 class="text-2xl font-black mb-6 flex items-center space-x-3 text-white">
+                        <i class="fa-solid fa-wand-magic-sparkles text-neonCyan"></i>
+                        <span>Text-to-Image Generation</span>
+                    </h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-5">
+                            <div>
+                               <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Generation Prompt:</label>
+                               <textarea id="image-prompt" rows="5" class="w-full bg-darkBg/90 border border-purple-500/40 rounded-2xl p-4 focus:outline-none focus:border-neonCyan text-sm text-gray-200 placeholder-gray-500" placeholder="An epic cyberpunk city in 8k resolution, glowing neon lights..."></textarea>
+                            </div>
+                            <button onclick="generateTrial('Image Generation')" class="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 font-black text-xs uppercase tracking-widest hover:brightness-125 transition shadow-lg shadow-purple-600/30">
+                                Generate Image Now
+                            </button>
+                        </div>
+                        <div id="image-result" class="glass-panel bg-darkBg/70 rounded-2xl flex flex-col items-center justify-center p-8 border border-dashed border-purple-500/30 min-h-[320px]">
+                            <i class="fa-solid fa-image text-4xl text-purple-500/40 mb-3"></i>
+                            <p class="text-gray-400 text-sm font-semibold">Your AI render output will display here.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Video Studio Tab -->
+            <!-- Video & Media Edit Studio (Upload & Modify) -->
             <div id="tab-video-studio" class="tab-content hidden space-y-6">
-                <div class="glass-panel p-6 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4">Video Studio</h2>
-                    <p class="text-gray-400 text-sm">Video generator workspace.</p>
+                <div class="glass-panel p-6 lg:p-8 rounded-3xl border border-purple-500/30">
+                    <h2 class="text-2xl font-black mb-6 flex items-center space-x-3 text-white">
+                        <i class="fa-solid fa-film text-neonCyan"></i>
+                        <span>Image/Video to Motion & Editing Studio</span>
+                    </h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-5">
+                            <!-- File Upload Area -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Upload Source Image / Video:</label>
+                                <div class="relative border-2 border-dashed border-purple-500/40 hover:border-neonCyan rounded-2xl p-6 text-center bg-darkBg/60 transition cursor-pointer">
+                                    <input type="file" id="media-upload" accept="image/*,video/*" onchange="previewMedia(event)" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full">
+                                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-neonPurple mb-2"></i>
+                                    <p class="text-xs font-bold text-gray-300" id="upload-label">Click or Drag & Drop Image / Video File Here</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Supports PNG, JPG, MP4, MOV (Max 50MB)</p>
+                                </div>
+                            </div>
+
+                            <!-- Modification Prompt -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Editing & Motion Prompt:</label>
+                                <textarea id="edit-prompt" rows="4" class="w-full bg-darkBg/90 border border-purple-500/40 rounded-2xl p-4 text-sm text-gray-200 focus:outline-none focus:border-neonCyan placeholder-gray-500" placeholder="e.g., Turn this photo into a 3D animated video, change clothes to cyberpunk outfit, add slow-motion camera zoom..."></textarea>
+                            </div>
+
+                            <button onclick="generateTrial('Media Edit')" class="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 font-black text-xs uppercase tracking-widest hover:brightness-125 transition shadow-lg shadow-purple-600/30 flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <span>Process AI Animation / Edit</span>
+                            </button>
+                        </div>
+
+                        <!-- Media Output Preview Container -->
+                        <div id="media-result" class="glass-panel bg-darkBg/70 rounded-2xl flex flex-col items-center justify-center p-6 border border-dashed border-purple-500/30 min-h-[350px]">
+                            <div id="media-preview-container" class="w-full h-full flex flex-col items-center justify-center space-y-3">
+                                <i class="fa-solid fa-photo-film text-5xl text-purple-500/30"></i>
+                                <p class="text-gray-400 text-sm font-semibold text-center">Uploaded media & AI animated output will render here.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Character Studio Tab -->
-            <div id="tab-character-studio" class="tab-content hidden space-y-6">
-                <div class="glass-panel p-6 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4">Character Studio</h2>
-                    <p class="text-gray-400 text-sm">Character consistency workspace.</p>
+            <!-- Pricing Tab (Binance Dedicated) -->
+            <div id="tab-pricing" class="tab-content hidden space-y-8">
+                <div class="text-center max-w-2xl mx-auto space-y-3">
+                    <span class="px-4 py-1.5 rounded-full bg-amber-500/10 text-yellow-400 text-xs font-black border border-amber-500/30 uppercase tracking-widest">
+                        💎 Direct Binance Crypto Checkout
+                    </span>
+                    <h2 class="text-3xl lg:text-5xl font-black text-white">Choose Plan & Pay Direct</h2>
+                    <p class="text-gray-300 text-sm">Send exact USDT / Crypto amount to our verified wallet address below to activate full access.</p>
                 </div>
-            </div>
 
-            <!-- Settings Tab -->
-            <div id="tab-settings" class="tab-content hidden space-y-6">
-                <div class="glass-panel p-6 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-4">Settings</h2>
-                    <p class="text-gray-400 text-sm">Account settings.</p>
+                <!-- Wallet Box Banner -->
+                <div class="glass-panel p-6 rounded-3xl max-w-2xl mx-auto border-2 border-amber-500/50 bg-cardBg/90 space-y-3 glass-card-glow">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-extrabold text-yellow-400 uppercase tracking-wider flex items-center space-x-2">
+                            <i class="fa-solid fa-wallet text-base"></i>
+                            <span>Official Binance Wallet Address (USDT / BSC / ETH):</span>
+                        </span>
+                        <button onclick="copyWallet()" class="px-4 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-125 rounded-xl text-xs font-black transition text-white shadow-md">
+                            <i class="fa-solid fa-copy"></i> Copy Address
+                        </button>
+                    </div>
+                    <div class="bg-darkBg p-4 rounded-2xl border border-purple-500/30 mono-font text-xs text-neonCyan font-bold break-all select-all tracking-wider text-center">
+                        0xfd3519f35636ffd56d691170021da96e61457cc8
+                    </div>
                 </div>
-            </div>
 
-        </main>
-    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 max-w-4xl mx-auto">
+                    <!-- Pro Creator Plan ($41) -->
+                    <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between border-2 border-amber-500/70 glass-card-glow relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-500 to-yellow-500 text-black text-[10px] font-black px-4 py-1 rounded-bl-2xl uppercase tracking-wider">MOST POPULAR</div>
+                        <div>
+                            <h3 class="text-2xl font-black mb-2 text-yellow-400">Pro Creator</h3>
+                            <p class="text-gray-400 text-xs mb-4">Unlimited Image-to-Video conversion & editing with zero queue time.</p>
+                            <div class="text-4xl font-black mb-6 text-white">$41 <span class="text-xs text-gray-400 font-normal">/ month</span></div>
+                            <ul class="space-y-3 text-sm text-gray-300 mb-8 font-semibold">
+                                <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-yellow-400"></i><span>Unlimited Image & Video Upload Edits</span></li>
+                                <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-yellow-400"></i><span>Full Image-to-Video Animation Studio</span></li>
+                                <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-yellow-400"></i><span>Priority AI Processing Speed (4K)</span></li>
+                            </ul>
+                        </div>
+                        <button onclick="payWithWallet('Pro Creator', 41)" class="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-black font-black text-xs uppercase tracking-widest hover:brightness-110 transition shadow-lg shadow-amber-500/20">
+                            Pay $41 via Binance Wallet
+                        </button>
+                    </div>
 
-    <!-- JavaScript -->
-    <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            document.getElementById('tab-' + tabId).classList.remove('hidden');
-        }
-
-        function copyWallet() {
-            const wallet = "0xfd3519f35636ffd56d691170021da96e61457cc8";
-            navigator.clipboard.writeText(wallet);
-            alert("Wallet address copied successfully!");
-        }
-
-        function payWithWallet(planName, price) {
-            const wallet = "0xfd3519f35636ffd56d691170021da96e61457cc8";
-            alert("To subscribe to " + planName + " ($" + price + "):\n\nSend the exact amount to our Binance wallet:\n" + wallet);
-        }
-    </script>
-</body>
-</html>
+                    <!-- Basic Boost Plan ($14) -->
+                    <div class="glass-panel p-8 rounded-3xl flex flex-col justify-between 
